@@ -2,9 +2,9 @@ name: Build
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "fun-with-resolutions" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "fun-with-resolutions" ]
 
 env:
   PREFIX: i686-w64-mingw32
