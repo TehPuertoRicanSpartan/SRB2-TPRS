@@ -10,7 +10,7 @@ env:
   PREFIX: i686-w64-mingw32
 
 jobs:
-  Windows-x86_64:
+  Windows-x86:
     runs-on: ubuntu-latest
     steps:
      - uses: actions/checkout@v4.2.2
