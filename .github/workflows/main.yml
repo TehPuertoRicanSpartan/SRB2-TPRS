@@ -1,3 +1,5 @@
+# yes, this fork is made in 64-bit in mind. if you don't like exclusively 64-bit stuff, then compile it yourself
+
 name: Build
 
 on:
@@ -7,27 +9,27 @@ on:
     branches: [ "master" ]
 
 env:
-  PREFIX: i686-w64-mingw32
+  PREFIX: x86_64-w64-mingw32
 
 jobs:
-  Windows-x86:
+  Windows-x64:
     runs-on: ubuntu-latest
     steps:
-     - uses: actions/checkout@v4.2.2
+     - uses: actions/checkout@main
 
      - name: Update package list
        run: sudo apt-get update
 
      - name: Install Dependencies
-       run: sudo apt-get install -y gcc-mingw-w64-i686 binutils-mingw-w64-i686
+       run: sudo apt-get install -y gcc-mingw-w64-x86-64 binutils-mingw-w64-x86-64
 
      - name: Build SRB2
-       run: make -C src/ --keep-going  -j$(nproc) MINGW=1
+       run: make -C src/ --keep-going  -j$(nproc) MINGW64=1
 
      - name: Upload Artifacts
-       uses: actions/upload-artifact@v4.6.1
+       uses: actions/upload-artifact@main
        with:
-        name: srb2-windows-x86
+        name: srb2-tprs-windows-x64
         path: |
           bin/
           src/comptime.h
